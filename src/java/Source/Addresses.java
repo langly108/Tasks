@@ -35,12 +35,12 @@ public class Addresses {
         //Наверное должно предполагаться, что это идёт из базы данных, а не заполняется статически
 
    JSONArray states = new JSONArray();
-   hashMap.entrySet().forEach((me) -> {  
-     JSONObject stateJson = new JSONObject();  
-     stateJson.put("short_name",me.getKey());
-     stateJson.put("name",me.getValue());
-     states.put(stateJson);
-      });
+   hashMap.forEach((key, value) -> {
+       JSONObject stateJson = new JSONObject();
+       stateJson.put("short_name", key);
+       stateJson.put("name", value);
+       states.put(stateJson);
+   });
    
   return states;
             }
